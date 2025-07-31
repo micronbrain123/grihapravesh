@@ -95,7 +95,7 @@ export default function CategoriesSection() {
           </h2>
           
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Choose from our diverse range of property types to find exactly what you're looking for
+            Choose from our diverse range of property types to find exactly what you are looking for
           </p>
         </div>
 
