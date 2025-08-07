@@ -1,10 +1,11 @@
 'use client'
 // src/app/legal/page.js
 import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import Link from 'next/link';
 
-export default function LegalPage() {
+// Separate component that uses useSearchParams
+function LegalContent() {
   const searchParams = useSearchParams();
   const [activeService, setActiveService] = useState('registration');
   const [formData, setFormData] = useState({
@@ -348,5 +349,26 @@ export default function LegalPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Loading component
+function LegalLoading() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading legal services...</p>
+      </div>
+    </div>
+  );
+}
+
+// Main exported component with Suspense boundary
+export default function LegalPage() {
+  return (
+    <Suspense fallback={<LegalLoading />}>
+      <LegalContent />
+    </Suspense>
   );
 }
