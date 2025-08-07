@@ -1,9 +1,10 @@
 'use client'
 // src/app/properties/page.js
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 
-export default function PropertiesPage() {
+// Separate the component that uses useSearchParams
+function PropertiesContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [properties, setProperties] = useState([]);
@@ -347,6 +348,27 @@ export default function PropertiesPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Loading fallback component
+function PropertiesLoading() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading properties...</p>
+      </div>
+    </div>
+  );
+}
+
+// Main exported component with Suspense boundary
+export default function PropertiesPage() {
+  return (
+    <Suspense fallback={<PropertiesLoading />}>
+      <PropertiesContent />
+    </Suspense>
   );
 }
 
