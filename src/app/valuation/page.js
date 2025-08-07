@@ -1,9 +1,10 @@
 'use client'
 // src/app/valuation/page.js
 import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 
-export default function ValuationPage() {
+// Component that uses useSearchParams - must be wrapped in Suspense
+function ValuationContent() {
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
@@ -418,5 +419,26 @@ export default function ValuationPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Loading component for Suspense fallback
+function ValuationLoadingSpinner() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading valuation form...</p>
+      </div>
+    </div>
+  );
+}
+
+// Main page component with Suspense wrapper
+export default function ValuationPage() {
+  return (
+    <Suspense fallback={<ValuationLoadingSpinner />}>
+      <ValuationContent />
+    </Suspense>
   );
 }

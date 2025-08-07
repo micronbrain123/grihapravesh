@@ -1,10 +1,11 @@
 'use client'
 // src/app/services/page.js
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
 
-export default function ServicesPage() {
+// Component that uses useSearchParams - must be wrapped in Suspense
+function ServicesContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [services, setServices] = useState([]);
@@ -191,7 +192,7 @@ export default function ServicesPage() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
-                        {/* Sidebar Filters */}
+          {/* Sidebar Filters */}
           <div className="lg:w-1/4">
             <div className="bg-white rounded-lg shadow-sm p-6 sticky top-4">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Filters</h3>
@@ -432,5 +433,26 @@ function ServiceCard({ service }) {
         </div>
       </div>
     </div>
+  );
+}
+
+// Loading component for Suspense fallback
+function ServicesLoadingSpinner() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading services...</p>
+      </div>
+    </div>
+  );
+}
+
+// Main page component with Suspense wrapper
+export default function ServicesPage() {
+  return (
+    <Suspense fallback={<ServicesLoadingSpinner />}>
+      <ServicesContent />
+    </Suspense>
   );
 }
