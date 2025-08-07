@@ -1,11 +1,11 @@
-import HeroSection from '@/components/HeroSection'
-import CategoriesSection from '@/components/CategoriesSection'
-import PopularCities from '@/components/PopularCities'
-import FeaturedProjects from '@/components/FeaturedProjects'
-import WhyChooseUs from '@/components/WhyChooseUs'
-import InsightsPreview from '@/components/InsightsPreview'
-import PriceTrends from '@/components/PriceTrends'
-import PostPropertyCTA from '@/components/PostPropertyCTA'
+import HeroSection from '@/components/landingPage/HeroSection'
+import CategoriesSection from '@/components/landingPage/CategoriesSection'
+import PopularCities from '@/components/landingPage/PopularCities'
+import FeaturedProjects from '@/components/landingPage/FeaturedProjects'
+import WhyChooseUs from '@/components/landingPage/WhyChooseUs'
+import InsightsPreview from '@/components/landingPage/InsightsPreview'
+import PriceTrends from '@/components/landingPage/PriceTrends'
+import PostPropertyCTA from '@/components/landingPage/PostPropertyCTA'
 
 export default function HomePage() {
   return (

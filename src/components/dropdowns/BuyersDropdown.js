@@ -1,6 +1,7 @@
+// components/dropdowns/BuyersDropdown.js
 "use client"
-
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 export default function BuyersDropdown() {
   const [activeTab, setActiveTab] = useState('buy-home');
@@ -56,7 +57,7 @@ export default function BuyersDropdown() {
     },
     {
       id: 'articles',
-      title: 'ARTICLES & NEWS',
+      title: 'BLOG',
       subtitle: 'Latest Updates',
       icon: (
         <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,49 +69,53 @@ export default function BuyersDropdown() {
     }
   ];
 
+  // Helper function to generate property URLs
+  const generatePropertyURL = (location, type = null) => {
+    const params = new URLSearchParams();
+    if (location) params.append('location', location);
+    if (type) params.append('type', type);
+    return `/properties?${params.toString()}`;
+  };
+
+  // Updated content data with quick links removed
   const contentData = {
     'buy-home': {
       title: 'TOP CITIES',
       cities: [
-        'Delhi / NCR',
-        'Mumbai',
-        'Bangalore',
-        'Hyderabad Metropolitan Region',
-        'Pune',
-        'Kolkata',
-        'Chennai',
-        'Ahmedabad'
-      ],
-      quickLinks: [
-        { title: 'For Owners', url: '/owners' },
-        { title: 'For Dealers/Builders', url: '/builders' },
-        { title: 'Insights', url: '/insights' }
+        { name: 'Delhi / NCR', slug: 'delhi', isRegion: true },
+        { name: 'Mumbai', slug: 'mumbai' },
+        { name: 'Bangalore', slug: 'bangalore' },
+        { name: 'Hyderabad Metropolitan Region', slug: 'hyderabad' },
+        { name: 'Pune', slug: 'pune' },
+        { name: 'Kolkata', slug: 'kolkata' },
+        { name: 'Chennai', slug: 'chennai' },
+        { name: 'Ahmedabad', slug: 'ahmedabad' }
       ]
     },
     'land-plot': {
       title: 'POPULAR LOCATIONS',
       cities: [
-        'Gurgaon',
-        'Noida',
-        'Greater Noida',
-        'Faridabad',
-        'Ghaziabad',
-        'Sonipat',
-        'Panipat',
-        'Rohtak'
+        { name: 'Gurgaon', slug: 'gurgaon' },
+        { name: 'Noida', slug: 'noida' },
+        { name: 'Greater Noida', slug: 'greater-noida' },
+        { name: 'Faridabad', slug: 'faridabad' },
+        { name: 'Ghaziabad', slug: 'ghaziabad' },
+        { name: 'Sonipat', slug: 'sonipat' },
+        { name: 'Panipat', slug: 'panipat' },
+        { name: 'Rohtak', slug: 'rohtak' }
       ]
     },
     'commercial': {
       title: 'BUSINESS HUBS',
       cities: [
-        'Connaught Place',
-        'Bandra Kurla Complex',
-        'Electronic City',
-        'Cyber City Gurgaon',
-        'Salt Lake Sector V',
-        'Powai',
-        'Whitefield',
-        'Hinjewadi'
+        { name: 'Connaught Place', slug: 'connaught-place' },
+        { name: 'Bandra Kurla Complex', slug: 'bandra-kurla-complex' },
+        { name: 'Electronic City', slug: 'electronic-city' },
+        { name: 'Cyber City Gurgaon', slug: 'cyber-city-gurgaon' },
+        { name: 'Salt Lake Sector V', slug: 'salt-lake-sector-v' },
+        { name: 'Powai', slug: 'powai' },
+        { name: 'Whitefield', slug: 'whitefield' },
+        { name: 'Hinjewadi', slug: 'hinjewadi' }
       ]
     },
     'insights': {
@@ -122,26 +127,26 @@ export default function BuyersDropdown() {
         { name: 'Tools, Utilities & more', icon: '🔧' }
       ],
       exploreOptions: [
-        'Buying a home',
-        'Renting a home',
-        'Invest in Real Estate',
-        'Sell/Rent your property',
-        'Plots/Land',
-        'Explore insights',
-        'PG'
+        { name: 'Buying a home', type: 'apartment' },
+        { name: 'Renting a home', type: 'rental' },
+        { name: 'Invest in Real Estate', featured: true },
+        { name: 'Sell/Rent your property', url: '/post-property' },
+        { name: 'Plots/Land', type: 'plot' },
+        { name: 'Explore insights', url: '/insights' },
+        { name: 'PG', type: 'pg' }
       ]
     },
     'articles': {
       title: 'LATEST ARTICLES',
       articles: [
-        'Property Market Trends 2024',
-        'Best Time to Buy Property',
-        'Home Loan Interest Rates',
-        'Investment Tips for Buyers',
-        'Legal Documents Checklist',
-        'Property Registration Guide',
-        'Market Analysis Reports',
-        'Expert Opinion & Reviews'
+        { title: 'Property Market Trends 2024', slug: 'property-market-trends-2024' },
+        { title: 'Best Time to Buy Property', slug: 'best-time-to-buy-property' },
+        { title: 'Home Loan Interest Rates', slug: 'home-loan-interest-rates' },
+        { title: 'Investment Tips for Buyers', slug: 'investment-tips-for-buyers' },
+        { title: 'Legal Documents Checklist', slug: 'legal-documents-checklist' },
+        { title: 'Property Registration Guide', slug: 'property-registration-guide' },
+        { title: 'Market Analysis Reports', slug: 'market-analysis-reports' },
+        { title: 'Expert Opinion & Reviews', slug: 'expert-opinion-reviews' }
       ]
     }
   };
@@ -152,7 +157,7 @@ export default function BuyersDropdown() {
     if (activeTab === 'insights') {
       return (
         <div>
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 mb-4" >
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 mb-4">
             <div className="flex items-center justify-between mb-3">
               <div>
                 <h3 className="text-sm font-semibold text-gray-900 mb-1">
@@ -182,14 +187,27 @@ export default function BuyersDropdown() {
             GET STARTED WITH EXPLORING REAL ESTATE OPTIONS
           </h3>
           <div className="grid grid-cols-3 gap-2">
-            {content.exploreOptions.map((option, idx) => (
-              <button
-                key={idx}
-                className="text-xs text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-2 py-1 rounded transition-all duration-200 text-center"
-              >
-                {option}
-              </button>
-            ))}
+            {content.exploreOptions.map((option, idx) => {
+              // Generate dynamic URLs based on option type
+              let href = '/properties';
+              if (option.type) {
+                href = generatePropertyURL(null, option.type);
+              } else if (option.featured) {
+                href = '/properties?featured=true';
+              } else if (option.url) {
+                href = option.url;
+              }
+
+              return (
+                <Link
+                  key={idx}
+                  href={href}
+                  className="text-xs text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-2 py-1 rounded transition-all duration-200 text-center block"
+                >
+                  {option.name}
+                </Link>
+              );
+            })}
           </div>
         </div>
       );
@@ -203,12 +221,13 @@ export default function BuyersDropdown() {
           </h3>
           <div className="space-y-2">
             {content.articles.map((article, idx) => (
-              <button 
+              <Link 
                 key={idx}
+                href={`/articles/${article.slug}`}
                 className="block w-full text-left text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md transition-all duration-200"
               >
-                📰 {article}
-              </button>
+                📰 {article.title}
+              </Link>
             ))}
           </div>
         </div>
@@ -217,30 +236,34 @@ export default function BuyersDropdown() {
 
     return (
       <div>
-        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
           {content?.title}
         </h3>
-        {activeTab === 'buy-home' && (
-          <div className="flex space-x-4 mb-4">
-            {contentData['buy-home'].quickLinks.map((link, idx) => (
-              <button
-                key={idx}
-                className="text-xs font-medium text-blue-600 hover:underline"
-              >
-                {link.title}
-              </button>
-            ))}
-          </div>
-        )}
         <div className="grid grid-cols-2 gap-2">
-          {content?.cities?.map((city, idx) => (
-            <button 
-              key={idx}
-              className="text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md transition-all duration-200 text-left"
-            >
-              {activeTab === 'commercial' ? `Office in ${city}` : `Property in ${city}`}
-            </button>
-          ))}
+          {content?.cities?.map((city, idx) => {
+            // Generate URLs based on the active tab and city
+            let href = generatePropertyURL(city.slug);
+            let displayText = `Property in ${city.name}`;
+            
+            // Add property type filter based on active tab
+            if (activeTab === 'land-plot') {
+              href = generatePropertyURL(city.slug, 'plot');
+              displayText = `Plots in ${city.name}`;
+            } else if (activeTab === 'commercial') {
+              href = generatePropertyURL(city.slug, 'commercial');
+              displayText = `Office in ${city.name}`;
+            }
+
+            return (
+              <Link 
+                key={idx}
+                href={href}
+                className="text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md transition-all duration-200 text-left block"
+              >
+                {displayText}
+              </Link>
+            );
+          })}
         </div>
       </div>
     );
@@ -294,7 +317,7 @@ export default function BuyersDropdown() {
               <span className="ml-2">(9AM-11PM IST)</span>
             </div>
             <div className="mt-2 text-xs text-gray-500">
-              Email us at <span className="text-blue-600 hover:underline cursor-pointer">services@grihapravesh.com</span>, 
+              Email us at <span className="text-blue-600 hover:underline cursor-pointer">grihaprobesh.com</span>, 
               or call us at <span className="font-medium">1800 41 99099 (IND Toll-Free)</span>
             </div>
           </div>

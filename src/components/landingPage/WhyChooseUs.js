@@ -106,7 +106,7 @@ export default function WhyChooseUs() {
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-gray-800 via-blue-800 to-purple-800 bg-clip-text text-transparent">
-              Why Choose GrihaPravesh
+              Why Choose GrihaProbesh
             </span>
           </h2>
           
@@ -205,7 +205,7 @@ export default function WhyChooseUs() {
             Ready to Find Your Dream Property?
           </h3>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who found their perfect home through GrihaPravesh
+            Join thousands of satisfied customers who found their perfect home through GrihaProbesh
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

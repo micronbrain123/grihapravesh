@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 export default function OwnersDropdown() {
   const [activeService, setActiveService] = useState('sell-rent');
@@ -37,79 +38,92 @@ export default function OwnersDropdown() {
     }
   ];
 
+  // Helper function to generate service URLs
+  const generateServiceURL = (service, location = null) => {
+    const params = new URLSearchParams();
+    if (location) params.append('location', location);
+    params.append('type', service);
+    
+    // Route to appropriate page based on service type
+    const routes = {
+      'sell-rent': '/services',
+      'valuation': '/valuation',
+      'legal': '/legal', 
+      'interior': '/interior'
+    };
+    
+    const basePath = routes[service] || '/services';
+    return params.toString() ? `${basePath}?${params.toString()}` : basePath;
+  };
+
   const contentData = {
     'sell-rent': {
       title: 'Popular Cities',
       cities: [
-        'Delhi / NCR',
-        'Mumbai',
-        'Bangalore',
-        'Hyderabad',
-        'Pune',
-        'Chennai',
-        'Kolkata',
-        'Ahmedabad'
+        { name: 'Delhi / NCR', slug: 'delhi' },
+        { name: 'Mumbai', slug: 'mumbai' },
+        { name: 'Bangalore', slug: 'bangalore' },
+        { name: 'Hyderabad', slug: 'hyderabad' },
+        { name: 'Pune', slug: 'pune' },
+        { name: 'Chennai', slug: 'chennai' },
       ],
       helpText: 'Post your property for FREE and connect with genuine buyers/tenants',
       features: [
-        'Zero brokerage charges',
-        'Direct buyer/tenant contact',
-        'Professional photography',
-        'Premium listing options'
+        { name: 'Zero brokerage charges', url: '/post-property' },
+        { name: 'Professional photography', url: '/services?type=sell-rent&feature=photography' },
+        { name: 'Premium listing options', url: '/services?type=sell-rent&featured=true' }
       ]
     },
     'valuation': {
       title: 'Valuation Services',
       cities: [
-        'Delhi / NCR',
-        'Mumbai',
-        'Bangalore',
-        'Hyderabad',
-        'Pune',
-        'Chennai'
+        { name: 'Delhi / NCR', slug: 'delhi' },
+        { name: 'Mumbai', slug: 'mumbai' },
+        { name: 'Bangalore', slug: 'bangalore' },
+        { name: 'Hyderabad', slug: 'hyderabad' },
+        { name: 'Pune', slug: 'pune' },
+        { name: 'Chennai', slug: 'chennai' }
       ],
       helpText: 'Get accurate property valuation based on market trends',
       features: [
-        'AI-powered estimates',
-        'Market comparison analysis',
-        'Professional reports',
-        'Investment insights'
+        { name: 'AI-powered estimates', url: '/valuation?service=ai-estimates' },
+        { name: 'Market comparison analysis', url: '/valuation?service=market-analysis' },
+        { name: 'Investment insights', url: '/valuation?service=investment-insights' }
       ]
     },
     'legal': {
       title: 'Legal Assistance',
       cities: [
-        'Delhi / NCR',
-        'Mumbai',
-        'Bangalore',
-        'Hyderabad',
-        'Pune',
-        'Chennai'
+        { name: 'Delhi / NCR', slug: 'delhi' },
+        { name: 'Mumbai', slug: 'mumbai' },
+        { name: 'Bangalore', slug: 'bangalore' },
+        { name: 'Hyderabad', slug: 'hyderabad' },
+        { name: 'Pune', slug: 'pune' },
+        { name: 'Chennai', slug: 'chennai' }
       ],
       helpText: 'Complete legal support for property transactions',
       features: [
-        'Document verification',
-        'Title clearance',
-        'Registration support',
-        'Legal consultation'
+        { name: 'Document verification', url: '/legal?service=document-verification' },
+        { name: 'Registration support', url: '/legal?service=registration' },
+        { name: 'Legal consultation', url: '/legal?service=consultation' }
       ]
     },
     'interior': {
       title: 'Design Services',
       cities: [
-        'Delhi / NCR',
-        'Mumbai',
-        'Bangalore',
-        'Hyderabad',
-        'Pune',
-        'Chennai'
+        { name: 'Delhi / NCR', slug: 'delhi' },
+        { name: 'Mumbai', slug: 'mumbai' },
+        { name: 'Bangalore', slug: 'bangalore' },
+        { name: 'Hyderabad', slug: 'hyderabad' },
+        { name: 'Pune', slug: 'pune' },
+        { name: 'Chennai', slug: 'chennai' }
       ],
       helpText: 'Transform your space with professional interior design',
       features: [
-        '3D visualization',
-        'Budget-friendly options',
-        'Expert designers',
-        'End-to-end execution'
+        { name: '3D visualization', url: '/interior?service=3d-visualization' },
+        { name: 'Budget-friendly options', url: '/interior?service=budget-options' },
+        { name: 'Expert designers', url: '/interior?service=expert-consultation' },
+        { name: 'End-to-end execution', url: '/interior?service=full-execution' }
       ]
     }
   };
@@ -125,7 +139,7 @@ export default function OwnersDropdown() {
   };
 
   return (
-    <div className="w-[700px] bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+    <div className="w-[800px] bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
       <div className="flex">
         {/* Left Panel - Services */}
         <div className="w-1/2 p-6 border-r border-gray-100">
@@ -189,14 +203,32 @@ export default function OwnersDropdown() {
 
           {/* Cities Grid */}
           <div className="grid grid-cols-2 gap-2 mb-4">
-            {contentData[activeService]?.cities.map((city, index) => (
-              <button 
-                key={index}
-                className="text-sm text-gray-700 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded transition-colors text-left"
-              >
-                {city}
-              </button>
-            ))}
+            {contentData[activeService]?.cities.map((city, index) => {
+              // Generate dynamic URLs based on service type and location
+              const href = generateServiceURL(activeService, city.slug);
+              let displayText = city.name;
+              
+              // Customize display text based on service
+              if (activeService === 'sell-rent') {
+                displayText = `Post in ${city.name}`;
+              } else if (activeService === 'valuation') {
+                displayText = `Valuation in ${city.name}`;
+              } else if (activeService === 'legal') {
+                displayText = `Legal Help in ${city.name}`;
+              } else if (activeService === 'interior') {
+                displayText = `Design in ${city.name}`;
+              }
+
+              return (
+                <Link 
+                  key={index}
+                  href={href}
+                  className="text-sm text-gray-700 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded transition-colors text-left block"
+                >
+                  {displayText}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Features */}
@@ -206,24 +238,70 @@ export default function OwnersDropdown() {
             </h4>
             <div className="space-y-1">
               {contentData[activeService]?.features.map((feature, index) => (
-                <div key={index} className="flex items-center text-xs text-gray-600">
+                <Link 
+                  key={index}
+                  href={feature.url}
+                  className="flex items-center text-xs text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-2 py-1 rounded transition-colors"
+                >
                   <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></div>
-                  {feature}
-                </div>
+                  {feature.name}
+                </Link>
               ))}
             </div>
           </div>
 
-          {/* Support Info */}
-          <div className="pt-4 border-t border-gray-100">
-            <div className="text-xs text-gray-500">
-              <span>Need help? Call </span>
-              <span className="font-medium text-gray-700">1800 41 99099</span>
-            </div>
-            <div className="mt-1 text-xs text-blue-500 hover:underline">
-              <button className="text-left">
-                owners@grihapravesh.com
-              </button>
+          {/* Quick Action Buttons */}
+          <div className="space-y-2 mb-4">
+            {activeService === 'sell-rent' && (
+              <Link 
+                href="/post-property"
+                className="w-full bg-green-500 hover:bg-green-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
+              >
+                <span className="mr-2">📝</span>
+                Post Property Now
+              </Link>
+            )}
+            
+            {activeService === 'valuation' && (
+              <Link 
+                href="/valuation/instant"
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
+              >
+                <span className="mr-2">⚡</span>
+                Get Instant Valuation
+              </Link>
+            )}
+            
+            {activeService === 'legal' && (
+              <Link 
+                href="/legal/consultation"
+                className="w-full bg-purple-500 hover:bg-purple-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
+              >
+                <span className="mr-2">👨‍💼</span>
+                Book Consultation
+              </Link>
+            )}
+            
+            {activeService === 'interior' && (
+              <Link 
+                href="/interior/quote"
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
+              >
+                <span className="mr-2">🎨</span>
+                Get Design Quote
+              </Link>
+            )}
+          </div>
+
+          {/* Footer Links */}
+          <div className="pt-3 border-t border-gray-100">
+            <div className="flex justify-between text-xs text-gray-500">
+              <Link href="/help" className="hover:text-blue-500 transition-colors">
+                Need Help?
+              </Link>
+              <Link href="/contact" className="hover:text-blue-500 transition-colors">
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>
