@@ -35,32 +35,32 @@ const categories = [
   { 
     label: 'Buy', 
     icon: <BuyIcon />,
-    gradient: 'from-green-500 to-emerald-600',
-    hoverGradient: 'from-green-600 to-emerald-700',
-    bgGradient: 'from-green-50 to-emerald-50',
+    gradient: 'from-green-600 to-green-700',
+    hoverGradient: 'from-green-700 to-green-800',
+    bgGradient: 'from-green-50 to-green-100',
     description: 'Find your perfect home'
   },
   { 
     label: 'Rent', 
     icon: <RentIcon />,
-    gradient: 'from-blue-500 to-cyan-600',
-    hoverGradient: 'from-blue-600 to-cyan-700',
-    bgGradient: 'from-blue-50 to-cyan-50',
+    gradient: 'from-orange-500 to-orange-600',
+    hoverGradient: 'from-orange-600 to-orange-700',
+    bgGradient: 'from-orange-50 to-orange-100',
     description: 'Discover rental properties'
   },
   { 
     label: 'Commercial', 
     icon: <CommercialIcon />,
-    gradient: 'from-purple-500 to-pink-600',
-    hoverGradient: 'from-purple-600 to-pink-700',
-    bgGradient: 'from-purple-50 to-pink-50',
+    gradient: 'from-red-500 to-red-600',
+    hoverGradient: 'from-red-600 to-red-700',
+    bgGradient: 'from-red-50 to-red-100',
     description: 'Business & office spaces'
   },
   { 
     label: 'New Projects', 
     icon: <NewProjectsIcon />,
-    gradient: 'from-orange-500 to-red-600',
-    hoverGradient: 'from-orange-600 to-red-700',
+    gradient: 'from-orange-600 to-red-500',
+    hoverGradient: 'from-orange-700 to-red-600',
     bgGradient: 'from-orange-50 to-red-50',
     description: 'Latest developments'
   },
@@ -70,26 +70,26 @@ export default function CategoriesSection() {
   return (
     <section className="relative py-20 px-4 overflow-hidden">
       {/* Dynamic Background with Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-orange-50/30 to-red-50/30"></div>
       
       {/* Floating Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <FloatingCircle size="32" color="bg-blue-300" position="top-10 left-10" delay="0s" />
-        <FloatingCircle size="24" color="bg-purple-300" position="top-20 right-20" delay="2s" />
+        <FloatingCircle size="32" color="bg-orange-300" position="top-10 left-10" delay="0s" />
+        <FloatingCircle size="24" color="bg-red-300" position="top-20 right-20" delay="2s" />
         <FloatingCircle size="28" color="bg-green-300" position="bottom-20 left-1/4" delay="4s" />
-        <FloatingCircle size="20" color="bg-pink-300" position="bottom-10 right-1/3" delay="1s" />
+        <FloatingCircle size="20" color="bg-orange-400" position="bottom-10 right-1/3" delay="1s" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200/50 mb-4">
-            <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse mr-2"></span>
-            <span className="text-blue-800 text-sm font-medium">Property Categories</span>
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200/50 mb-4">
+            <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse mr-2"></span>
+            <span className="text-orange-800 text-sm font-medium">Property Categories</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-gray-800 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-800 via-orange-700 to-red-700 bg-clip-text text-transparent">
               Explore by Category
             </span>
           </h2>
@@ -153,7 +153,7 @@ export default function CategoriesSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-2xl hover:scale-105 active:scale-95">
+          <button className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-orange-600 hover:to-red-700 hover:shadow-2xl hover:scale-105 active:scale-95">
             <div className="relative z-10 flex items-center gap-2">
               <span>View All Properties</span>
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,7 +162,7 @@ export default function CategoriesSection() {
             </div>
             
             {/* Button Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
           </button>
         </div>
       </div>

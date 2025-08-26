@@ -134,13 +134,13 @@ export default function InsightsPreview() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200/50 mb-4">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200/50 mb-4">
             <InsightIcon />
-            <span className="text-blue-800 text-sm font-medium ml-2">Market Intelligence</span>
+            <span className="text-orange-800 text-sm font-medium ml-2">Market Intelligence</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-gray-800 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-800 via-orange-700 to-red-700 bg-clip-text text-transparent">
               Latest Insights & Market Trends
             </span>
           </h2>
@@ -292,7 +292,7 @@ export default function InsightsPreview() {
               <a 
                 key={tag}
                 href={`/insights/tag/${tag.toLowerCase().replace(' ', '-')}`}
-                className="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 text-gray-600 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:border-transparent transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm font-medium"
+                className="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 text-gray-600 hover:text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 hover:border-transparent transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm font-medium"
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
                 {tag}
@@ -314,7 +314,7 @@ export default function InsightsPreview() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/insights"
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-2xl hover:scale-105 active:scale-95"
+                className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-orange-600 hover:to-red-700 hover:shadow-2xl hover:scale-105 active:scale-95"
               >
                 <div className="relative z-10 flex items-center justify-center gap-2">
                   <span>View All Insights</span>
@@ -322,10 +322,10 @@ export default function InsightsPreview() {
                 </div>
                 
                 {/* Button Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r border-orange-600 text-orange-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
               </a>
               
-              <button className="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-2xl font-semibold text-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
+              <button className="px-8 py-4 border-2 border-orange-600 text-orange-600 rounded-2xl font-semibold text-lg hover:bg-orange-600 hover:text-white transition-all duration-300 hover:scale-105">
                 Subscribe Newsletter
               </button>
             </div>

@@ -56,7 +56,7 @@ export default function BuyersDropdown() {
       hoverColor: 'group-hover:bg-orange-200'
     },
     {
-      id: 'articles',
+      id: 'blog',
       title: 'BLOG',
       subtitle: 'Latest Updates',
       icon: (
@@ -132,13 +132,12 @@ export default function BuyersDropdown() {
         { name: 'Invest in Real Estate', featured: true },
         { name: 'Sell/Rent your property', url: '/post-property' },
         { name: 'Plots/Land', type: 'plot' },
-        { name: 'Explore insights', url: '/insights' },
         { name: 'PG', type: 'pg' }
       ]
     },
-    'articles': {
-      title: 'LATEST ARTICLES',
-      articles: [
+    'blog': {
+      title: 'LATEST blog',
+      blog: [
         { title: 'Property Market Trends 2024', slug: 'property-market-trends-2024' },
         { title: 'Best Time to Buy Property', slug: 'best-time-to-buy-property' },
         { title: 'Home Loan Interest Rates', slug: 'home-loan-interest-rates' },
@@ -213,17 +212,17 @@ export default function BuyersDropdown() {
       );
     }
 
-    if (activeTab === 'articles') {
+    if (activeTab === 'blog') {
       return (
         <div>
           <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
             {content.title}
           </h3>
           <div className="space-y-2">
-            {content.articles.map((article, idx) => (
+            {content.blog.map((article, idx) => (
               <Link 
                 key={idx}
-                href={`/articles/${article.slug}`}
+                href={`/blog/${article.slug}`}
                 className="block w-full text-left text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md transition-all duration-200"
               >
                 📰 {article.title}

@@ -147,7 +147,7 @@ export default function Navbar() {
               {/* Post Property Button */}
               <Link
                 href="/post-property"
-                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-0.5"
+                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-0.5"
               >
                 <svg
                   className="w-4 h-4 mr-2"
@@ -400,7 +400,7 @@ export default function Navbar() {
                     <div className="border-t border-gray-200 pt-4 mt-4">
                       <Link
                         href="/post-property"
-                        className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105"
+                        className="flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105"
                       >
                         <svg
                           className="w-4 h-4 mr-2"

@@ -131,11 +131,11 @@ export default function FeaturedProjects() {
   return (
     <section className="relative py-20 px-4 overflow-hidden">
       {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-orange-50/30 to-purple-50/20"></div>
       
       {/* Floating Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <FloatingElement position="top-20 left-10" size="48" color="bg-blue-300" delay="0s" />
+        <FloatingElement position="top-20 left-10" size="48" color="bg-orange-300" delay="0s" />
         <FloatingElement position="top-40 right-20" size="36" color="bg-purple-300" delay="2s" />
         <FloatingElement position="bottom-32 left-1/4" size="40" color="bg-green-300" delay="4s" />
         <FloatingElement position="bottom-20 right-1/3" size="32" color="bg-pink-300" delay="1s" />
@@ -144,13 +144,13 @@ export default function FeaturedProjects() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200/50 mb-4">
-            <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse mr-2"></span>
-            <span className="text-blue-800 text-sm font-medium">Premium Collection</span>
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200/50 mb-4">
+            <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse mr-2"></span>
+            <span className="text-orange-800 text-sm font-medium">Premium Collection</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-gray-800 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-800 via-orange-700 to-red-700 bg-clip-text text-transparent">
               Featured Homes & Projects
             </span>
           </h2>
@@ -198,7 +198,7 @@ export default function FeaturedProjects() {
                 </div>
 
                 {/* Quick View Button */}
-                <div className="absolute bottom-4 right-4 p-2 bg-blue-600 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-blue-700 hover:scale-110">
+                <div className="absolute bottom-4 right-4 p-2 bg-orange-600 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-orange-700 hover:scale-110">
                   <ViewIcon />
                 </div>
               </div>
@@ -207,7 +207,7 @@ export default function FeaturedProjects() {
               <div className="p-6">
                 {/* Title & Location */}
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600 transition-colors duration-300">
                     {project.title}
                   </h3>
                   <div className="flex items-center text-gray-500 text-sm">
@@ -244,13 +244,13 @@ export default function FeaturedProjects() {
                 <div className="flex gap-3">
                   <a 
                     href={`/properties/${idx + 1}`}
-                    className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-center"
+                    className="flex-1 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl font-semibold hover:from-orange-600 hover:to-red-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-center"
                   >
                     View Details
                   </a>
                   <a 
                     href={`/contact?property=${encodeURIComponent(project.title)}`}
-                    className="px-4 py-3 border-2 border-blue-600 text-blue-600 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105 text-center"
+                    className="px-4 py-3 border-2 border-orange-600 text-orange-600 rounded-xl font-semibold hover:bg-orange-600 hover:text-white transition-all duration-300 hover:scale-105 text-center"
                   >
                     Contact
                   </a>
@@ -258,7 +258,7 @@ export default function FeaturedProjects() {
               </div>
 
               {/* Hover Glow Effect */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+              <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-orange-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                    style={{ 
                      background: `linear-gradient(white, white) padding-box, linear-gradient(135deg, #3b82f6, #8b5cf6) border-box`,
                      backgroundClip: 'padding-box, border-box'
@@ -297,7 +297,7 @@ export default function FeaturedProjects() {
         <div className="text-center mt-16">
           <a 
             href="/properties"
-            className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-2xl hover:scale-105 active:scale-95"
+            className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-orange-600 hover:to-red-700 hover:shadow-2xl hover:scale-105 active:scale-95"
           >
             <div className="relative z-10 flex items-center gap-2">
               <span>View All Properties</span>
@@ -307,7 +307,7 @@ export default function FeaturedProjects() {
             </div>
             
             {/* Button Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
           </a>
         </div>
 

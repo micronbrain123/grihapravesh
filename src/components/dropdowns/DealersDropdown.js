@@ -119,11 +119,11 @@ export default function DealersDropdown() {
           </div>
 
           {/* Quick Links */}
-          <div className="mt-6 pt-4 border-t border-gray-200">
+          {/* <div className="mt-6 pt-4 border-t border-gray-200">
             <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Quick Links</h4>
             <div className="grid grid-cols-2 gap-2">
               <Link 
-                href="/dashboard"
+                href="/"
                 className="text-xs text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-2 py-1 rounded transition-all duration-200 text-left block"
               >
                 Dashboard
@@ -147,7 +147,7 @@ export default function DealersDropdown() {
                 Support
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Right Panel - Dynamic Content */}

@@ -43,15 +43,15 @@ export default function OwnersDropdown() {
     const params = new URLSearchParams();
     if (location) params.append('location', location);
     params.append('type', service);
-    
+
     // Route to appropriate page based on service type
     const routes = {
       'sell-rent': '/services',
       'valuation': '/valuation',
-      'legal': '/legal', 
+      'legal': '/legal',
       'interior': '/interior'
     };
-    
+
     const basePath = routes[service] || '/services';
     return params.toString() ? `${basePath}?${params.toString()}` : basePath;
   };
@@ -146,28 +146,26 @@ export default function OwnersDropdown() {
           <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">
             Owner Services
           </h3>
-          
+
           <div className="space-y-2">
             {services.map((service) => (
-              <button 
+              <button
                 key={service.id}
                 onClick={() => setActiveService(service.id)}
-                className={`group w-full flex items-center p-3 rounded-lg transition-colors text-left ${
-                  activeService === service.id 
-                    ? 'bg-blue-50 border border-blue-200' 
+                className={`group w-full flex items-center p-3 rounded-lg transition-colors text-left ${activeService === service.id
+                    ? 'bg-blue-50 border border-blue-200'
                     : 'hover:bg-gray-50'
-                }`}
+                  }`}
               >
                 <div className={`w-9 h-9 ${getColorClasses(service.color)} rounded-lg flex items-center justify-center mr-3 ${getColorClasses(service.color, 'hover')}`}>
                   <span className="text-xl">{service.icon}</span>
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center">
-                    <h4 className={`font-medium ${
-                      activeService === service.id 
-                        ? 'text-blue-600' 
+                    <h4 className={`font-medium ${activeService === service.id
+                        ? 'text-blue-600'
                         : 'text-gray-800 group-hover:text-blue-500'
-                    }`}>
+                      }`}>
                       {service.title}
                     </h4>
                     {service.badge && (
@@ -178,11 +176,10 @@ export default function OwnersDropdown() {
                   </div>
                   <p className="text-xs text-gray-500 mt-0.5">{service.description}</p>
                 </div>
-                <svg className={`w-4 h-4 ${
-                  activeService === service.id 
-                    ? 'text-blue-400' 
+                <svg className={`w-4 h-4 ${activeService === service.id
+                    ? 'text-blue-400'
                     : 'text-gray-300 group-hover:text-blue-400'
-                }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
@@ -207,7 +204,7 @@ export default function OwnersDropdown() {
               // Generate dynamic URLs based on service type and location
               const href = generateServiceURL(activeService, city.slug);
               let displayText = city.name;
-              
+
               // Customize display text based on service
               if (activeService === 'sell-rent') {
                 displayText = `Post in ${city.name}`;
@@ -220,7 +217,7 @@ export default function OwnersDropdown() {
               }
 
               return (
-                <Link 
+                <Link
                   key={index}
                   href={href}
                   className="text-sm text-gray-700 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded transition-colors text-left block"
@@ -238,14 +235,13 @@ export default function OwnersDropdown() {
             </h4>
             <div className="space-y-1">
               {contentData[activeService]?.features.map((feature, index) => (
-                <Link 
+                <div
                   key={index}
-                  href={feature.url}
-                  className="flex items-center text-xs text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-2 py-1 rounded transition-colors"
+                  className="flex items-center text-xs text-gray-600 px-2 py-1"
                 >
                   <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></div>
                   {feature.name}
-                </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -253,7 +249,7 @@ export default function OwnersDropdown() {
           {/* Quick Action Buttons */}
           <div className="space-y-2 mb-4">
             {activeService === 'sell-rent' && (
-              <Link 
+              <Link
                 href="/post-property"
                 className="w-full bg-green-500 hover:bg-green-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
               >
@@ -261,9 +257,9 @@ export default function OwnersDropdown() {
                 Post Property Now
               </Link>
             )}
-            
+
             {activeService === 'valuation' && (
-              <Link 
+              <Link
                 href="/valuation/instant"
                 className="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
               >
@@ -271,9 +267,9 @@ export default function OwnersDropdown() {
                 Get Instant Valuation
               </Link>
             )}
-            
+
             {activeService === 'legal' && (
-              <Link 
+              <Link
                 href="/legal/consultation"
                 className="w-full bg-purple-500 hover:bg-purple-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
               >
@@ -281,9 +277,9 @@ export default function OwnersDropdown() {
                 Book Consultation
               </Link>
             )}
-            
+
             {activeService === 'interior' && (
-              <Link 
+              <Link
                 href="/interior/quote"
                 className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
               >

@@ -57,13 +57,13 @@ export default function PostPropertyCTA() {
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Dynamic Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-emerald-800"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-red-900 via-orange-900 to-green-800"></div>
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-emerald-400/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse [animation-delay:2s]"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-400/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse [animation-delay:4s]"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-orange-400/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-green-400/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse [animation-delay:2s]"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-red-400/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse [animation-delay:4s]"></div>
       </div>
 
       {/* Floating Elements */}
@@ -83,14 +83,14 @@ export default function PostPropertyCTA() {
         <div className="text-center">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8 group hover:scale-105 transition-transform duration-300">
-            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse mr-2"></span>
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></span>
             <span className="text-white/90 text-sm font-medium">Maximize Your Property's Potential</span>
           </div>
 
           {/* Main Heading */}
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             <span className="block text-white mb-2">Earn Maximum</span>
-            <span className="block bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-green-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
               Reach & Revenue
             </span>
           </h2>
@@ -109,10 +109,10 @@ export default function PostPropertyCTA() {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="p-3 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 rounded-full bg-gradient-to-r from-green-500 to-orange-500 text-white mb-4 group-hover:scale-110 transition-transform duration-300">
                     {benefit.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-300 transition-colors duration-300">
                     {benefit.title}
                   </h3>
                   <p className="text-white/70 group-hover:text-white/90 transition-colors duration-300">
@@ -127,10 +127,10 @@ export default function PostPropertyCTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             {/* Primary CTA */}
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:scale-110"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-orange-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:scale-110"></div>
               <button className="relative bg-gradient-to-r from-white to-gray-50 text-transparent bg-clip-text px-10 py-5 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 active:scale-95 group border-2 border-white">
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-50 rounded-2xl"></div>
-                <div className="relative flex items-center gap-3 text-blue-600">
+                <div className="relative flex items-center gap-3 text-orange-600">
                   <div className="group-hover:rotate-90 transition-transform duration-300">
                     <PlusCircleIcon />
                   </div>

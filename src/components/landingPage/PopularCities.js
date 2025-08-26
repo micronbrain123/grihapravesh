@@ -118,13 +118,13 @@ export default function PopularCities() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-slate-100 to-blue-100 border border-slate-200/50 mb-4">
-            <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse mr-2"></span>
-            <span className="text-slate-700 text-sm font-medium">Top Destinations</span>
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200/50 mb-4">
+            <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse mr-2"></span>
+            <span className="text-orange-800 text-sm font-medium">Top Destinations</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-slate-800 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-800 via-orange-700 to-red-700 bg-clip-text text-transparent">
               Explore Properties by City
             </span>
           </h2>

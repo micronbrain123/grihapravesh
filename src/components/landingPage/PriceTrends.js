@@ -70,15 +70,15 @@ export default function PriceTrends() {
         {/* Header Section */}
         <div className="text-center mb-16">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200/50 mb-6 group hover:scale-105 transition-transform duration-300">
-            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse mr-2"></div>
-            <span className="text-blue-700 text-sm font-medium">Market Intelligence</span>
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200/50 mb-6 group hover:scale-105 transition-transform duration-300">
+            <div className="w-2 h-2 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full animate-pulse mr-2"></div>
+            <span className="text-orange-700 text-sm font-medium">Market Intelligence</span>
           </div>
 
           {/* Main Heading */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="block text-gray-800 mb-2">Locality</span>
-            <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-500 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-orange-600 via-orange-600 to-orange-500 bg-clip-text text-transparent">
               Price Trends
             </span>
           </h2>
@@ -98,11 +98,11 @@ export default function PriceTrends() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Gradient Border Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
               
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
                     {item.city}
                   </h3>
                   <p className="text-2xl font-bold text-gray-900 mt-1">{item.price}</p>
@@ -137,7 +137,7 @@ export default function PriceTrends() {
                 ))}
               </div>
               
-              <button className="w-full py-2 text-blue-600 font-medium text-sm hover:text-blue-700 transition-colors duration-300 group-hover:scale-105">
+              <button className="w-full py-2 text-orange-600 font-medium text-sm hover:text-orange-700 transition-colors duration-300 group-hover:scale-105">
                 View Detailed Analysis →
               </button>
             </div>
@@ -148,9 +148,9 @@ export default function PriceTrends() {
         <div className="text-center">
           <div className="relative group inline-block">
             {/* Gradient glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:scale-110"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:scale-110"></div>
             
-            <button className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-2xl hover:scale-105 active:scale-95 group">
+            <button className="relative bg-gradient-to-r from-orange-500 to-red-600 text-white px-10 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:from-orange-600 hover:to-red-700 hover:shadow-2xl hover:scale-105 active:scale-95 group">
               <div className="flex items-center gap-3">
                 <div className="group-hover:rotate-12 transition-transform duration-300">
                   <BarChartIcon />
@@ -171,25 +171,25 @@ export default function PriceTrends() {
         {/* Additional Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16">
           <div className="text-center p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:bg-white/80 transition-all duration-300 hover:scale-105">
-            <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+            <div className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-orange-600 bg-clip-text text-transparent mb-2">
               50+
             </div>
             <div className="text-gray-600 font-medium">Cities Tracked</div>
           </div>
           <div className="text-center p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:bg-white/80 transition-all duration-300 hover:scale-105">
-            <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+            <div className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-orange-600 bg-clip-text text-transparent mb-2">
               10M+
             </div>
             <div className="text-gray-600 font-medium">Data Points</div>
           </div>
           <div className="text-center p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:bg-white/80 transition-all duration-300 hover:scale-105">
-            <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+            <div className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-orange-600 bg-clip-text text-transparent mb-2">
               95%
             </div>
             <div className="text-gray-600 font-medium">Accuracy Rate</div>
           </div>
           <div className="text-center p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:bg-white/80 transition-all duration-300 hover:scale-105">
-            <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+            <div className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-orange-600 bg-clip-text text-transparent mb-2">
               24/7
             </div>
             <div className="text-gray-600 font-medium">Live Updates</div>
