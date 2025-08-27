@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-gradient-to-r from-slate-900 via-gray-900 to-slate-900 text-white sticky top-0 z-50 border-b border-gray-700/50 backdrop-blur-sm">
+      <nav className="bg-gradient-to-r from-slate-100 via-gray-100 to-slate-100 text-black sticky top-0 z-50 border-b border-gray-700/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -48,7 +48,7 @@ export default function Navbar() {
                   onMouseEnter={() => setOpenDropdown("buyers")}
                   onMouseLeave={closeDropdown}
                 >
-                  <div className="text-gray-300 hover:text-white hover:bg-white/10 px-6 py-3 text-sm font-medium transition-all duration-200 flex items-center rounded-lg cursor-pointer select-none">
+                  <div className="text-black hover:text-black hover:bg-black/10 px-6 py-3 text-sm font-medium transition-all duration-200 flex items-center rounded-lg cursor-pointer select-none">
                     <span className="mr-3">For Buyers</span>
                     <svg
                       className={`w-4 h-4 transition-transform duration-200 ${
@@ -75,7 +75,7 @@ export default function Navbar() {
                   onMouseEnter={() => setOpenDropdown("owners")}
                   onMouseLeave={closeDropdown}
                 >
-                  <div className="text-gray-300 hover:text-white hover:bg-white/10 px-6 py-3 text-sm font-medium transition-all duration-200 flex items-center rounded-lg cursor-pointer select-none">
+                  <div className="text-black hover:text-black hover:bg-black/10 px-6 py-3 text-sm font-medium transition-all duration-200 flex items-center rounded-lg cursor-pointer select-none">
                     <span className="mr-3">For Owners</span>
                     <svg
                       className={`w-4 h-4 transition-transform duration-200 ${
@@ -102,7 +102,7 @@ export default function Navbar() {
                   onMouseEnter={() => setOpenDropdown("dealers")}
                   onMouseLeave={closeDropdown}
                 >
-                  <div className="text-gray-300 hover:text-white hover:bg-white/10 px-6 py-3 text-sm font-medium transition-all duration-200 flex items-center rounded-lg cursor-pointer select-none">
+                  <div className="text-black hover:text-black hover:bg-black/10 px-6 py-3 text-sm font-medium transition-all duration-200 flex items-center rounded-lg cursor-pointer select-none">
                     <span className="mr-3">Dealers & Builders</span>
                     <svg
                       className={`w-4 h-4 transition-transform duration-200 ${
@@ -173,7 +173,7 @@ export default function Navbar() {
                 {/* Profile Button with Dropdown */}
                 <button className="bg-white/10 hover:bg-white/20 p-2.5 rounded-lg transition-all duration-200 group">
                   <svg
-                    className="w-5 h-5 text-gray-300 group-hover:text-white"
+                    className="w-5 h-5 text-black group-hover:text-black"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -191,7 +191,7 @@ export default function Navbar() {
                 <div className="absolute top-full right-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 pt-3 z-50">
                   <div className="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden w-64">
                     <div className="px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-100">
-                      <div className="text-sm font-semibold text-gray-900">
+                      <div className="text-sm font-semibold text-black">
                         My Account
                       </div>
                       <div className="text-xs text-gray-500">
@@ -202,7 +202,7 @@ export default function Navbar() {
                     <div className="py-2">
                       <button
                         onClick={openLoginModal}
-                        className="flex items-center px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group w-full text-left"
+                        className="flex items-center px-4 py-3 text-black hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group w-full text-left"
                       >
                         <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-blue-200">
                           <svg
@@ -305,7 +305,7 @@ export default function Navbar() {
               {/* Menu Button */}
               <button className="bg-white/10 hover:bg-white/20 p-2.5 rounded-lg transition-all duration-200 group">
                 <svg
-                  className="w-5 h-5 text-gray-300 group-hover:text-white"
+                  className="w-5 h-5 text-black group-hover:text-black"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
