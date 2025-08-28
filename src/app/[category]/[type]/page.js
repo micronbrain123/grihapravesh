@@ -36,8 +36,8 @@ export default function DealerServicesPage() {
       color: 'green',
       category: 'Property Services'
     },
-    'my99acres': {
-      title: 'My99acres Dashboard',
+    'myGrihaProbesh': {
+      title: 'MyGrihaProbesh Dashboard',
       description: 'Manage your properties, leads, and business performance',
       icon: '📊',
       color: 'purple',
@@ -310,7 +310,7 @@ export default function DealerServicesPage() {
     </div>
   );
 
-  const renderMy99acres = () => (
+  const renderMyGrihaProbesh = () => (
     <div className="space-y-6">
       {/* Dashboard Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -484,7 +484,7 @@ export default function DealerServicesPage() {
             </svg>
           </div>
           <h3 className="font-semibold text-gray-900 mb-2">Email Support</h3>
-          <p className="text-green-600 font-medium">services@99acres.com</p>
+          <p className="text-green-600 font-medium">services@GrihaProbesh.com</p>
           <p className="text-sm text-gray-500">24/7 Response</p>
         </div>
 
@@ -561,7 +561,7 @@ export default function DealerServicesPage() {
         <div className="space-y-3">
           {[
             'How to create your first property listing',
-            'Understanding 99acres analytics dashboard',
+            'Understanding GrihaProbesh analytics dashboard',
             'Managing leads and follow-ups effectively',
             'Setting up automated responses',
             'Optimizing property photos for better visibility'
@@ -775,8 +775,8 @@ export default function DealerServicesPage() {
           return renderPostProperty();
         case 'dealer-services':
           return renderDealerServices();
-        case 'my99acres':
-          return renderMy99acres();
+        case 'myGrihaProbesh':
+          return renderMyGrihaProbesh();
         case 'view-responses':
           return renderViewResponses();
         default:
@@ -915,7 +915,7 @@ export default function DealerServicesPage() {
               <span className="ml-2">(9AM-11PM IST)</span>
             </div>
             <div className="mt-2 text-xs text-gray-500">
-              Email us at <Link href="mailto:services@99acres.com" className="text-blue-600 hover:underline">services@99acres.com</Link>, 
+              Email us at <Link href="mailto:services@GrihaProbesh.com" className="text-blue-600 hover:underline">services@GrihaProbesh.com</Link>, 
               or call us at <span className="font-medium">1800 41 99099 (IND Toll-Free)</span>
             </div>
           </div>

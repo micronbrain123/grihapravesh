@@ -280,7 +280,7 @@ const PropertyListing = () => {
       <header className="bg-blue-600 text-white p-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <h1 className="text-2xl font-bold">99acres</h1>
+            <h1 className="text-2xl font-bold">GrihaProbesh</h1>
             <div className="flex items-center bg-white rounded-lg px-4 py-2 text-black min-w-96">
               <select className="bg-transparent border-none outline-none mr-2">
                 <option>Buy</option>
@@ -349,7 +349,7 @@ const PropertyListing = () => {
                 <span className="text-sm">Verified properties</span>
                 <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">✓ Verified</span>
               </label>
-              <p className="text-xs text-gray-500 mt-1">by 99acres verification team</p>
+              <p className="text-xs text-gray-500 mt-1">by GrihaProbesh verification team</p>
             </div>
 
             {/* Budget Filter */}

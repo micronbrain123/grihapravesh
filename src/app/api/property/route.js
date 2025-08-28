@@ -65,7 +65,7 @@ function generateMockData(type, tab) {
       analytics: 12,
       crmIntegration: 6
     },
-    'my99acres': {
+    'myGrihaProbesh': {
       totalProperties: 25,
       activeLeads: 42,
       monthlyViews: 8750,
