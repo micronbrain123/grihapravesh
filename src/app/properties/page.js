@@ -372,8 +372,14 @@ export default function PropertiesPage() {
   );
 }
 
-// Property Card Component
+// Updated Property Card Component with Working Button
 function PropertyCard({ property }) {
+  const router = useRouter();
+
+  const handleViewDetails = () => {
+    router.push(`/properties/${property.id}`);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
       <div className="relative">
@@ -396,7 +402,10 @@ function PropertyCard({ property }) {
           <span className="capitalize">{property.type}</span>
           <span>{property.area} sq ft</span>
         </div>
-        <button className="w-full mt-4 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+        <button 
+          onClick={handleViewDetails}
+          className="w-full mt-4 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+        >
           View Details
         </button>
       </div>

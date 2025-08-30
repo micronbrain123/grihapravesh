@@ -338,7 +338,7 @@ function ServicesContent() {
   );
 }
 
-// Service Card Component
+// Updated Service Card Component with Dynamic Routing
 function ServiceCard({ service }) {
   const getServiceIcon = (type) => {
     const icons = {
@@ -422,9 +422,14 @@ function ServiceCard({ service }) {
         </div>
 
         <div className="flex space-x-2">
-          <button className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors text-sm font-medium">
+          {/* Updated button to use Link component for dynamic routing */}
+          <Link 
+            href={`/services/details/${service.id}`}
+            className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors text-sm font-medium text-center"
+          >
             {service.type === 'sell-rent' ? 'View Details' : 'Get Service'}
-          </button>
+          </Link>
+          
           {service.contact && (
             <button className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors text-sm font-medium">
               Call
